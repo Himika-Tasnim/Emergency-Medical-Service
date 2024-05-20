@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .question-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-left: 10%;
+            margin-right: 10%;
+            color: #17314b;;
+        }
+
+        .question-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .answer-box {
+            margin-top: 10px;
+        }
+
+        .answer-form {
+            margin-top: 10px;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            margin-left: 38%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .search-button {
+            padding: 8px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    
+    <h1 style="margin-left: 40%; margin-top: 3%; color:#17314b;">All Questions</h1>
+    <div class="search-box">
+        <form method="GET">
+            <input type="text" name="search" class="search-input" placeholder="Search..." value="{{ request.GET.search }}">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+    <div class="question-container">
+        {% for question in questions %}
+            <div class="question-box">
+                <h3>{{ question.question }}</h3>
+                <div class="answer-box">
+                    <p><strong>Answers:</strong></p>
+                    <ul>
+                        {% for answer in answers %}
+                            {% if answer.question == question %}
+                                <li>{{ answer.answer }}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% if user.doctor %}
+                    <div class="answer-form">
+                        <form method="post">
+                            {% csrf_token %}
+                            <label for="id_answer">Your Answer:</label>
+                            <input type="text" id="id_answer" name="answer" maxlength="255" required>
+                            <input type="hidden" id="id_question_id" name="questionId" value="{{ question.id }}">
+                            <input type="submit" value="Submit Answer">
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

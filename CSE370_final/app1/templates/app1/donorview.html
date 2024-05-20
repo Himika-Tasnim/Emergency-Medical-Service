@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Here is the list of Donors</h1>
+    <table border="1">
+        <thead >
+            <th>Name</th>
+            <th>Email</th>
+            <th>Blood Group</th>
+            <th>Last Donation Date</th>
+            <th>Donation Place</th>
+        </thead>
+        {% for i in donors %}
+            <tr>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.bloodGroup }}</td>
+                <td>{{i.lastDonation}} </td>
+                <td>{{ i.location}} </td>
+            </tr>
+        {%endfor%}
+        
+    </table>
+</body>
+</html>
+
+
+
+
+<!--
+<body>
+    <h1>Here is the list of Donors</h1>
+    <ul>
+        {% for i in donors %}
+            <li>email:{{ i.email }}<br>
+            blood_group:{{ i.bloodGroup }}<br>
+            last donation: {{ i.lastDonation}} <br>
+            Donation place: {{ i.location}} 
+        </li>
+        {%endfor%}
+    </ul>
+</body>
+</html>
+-->

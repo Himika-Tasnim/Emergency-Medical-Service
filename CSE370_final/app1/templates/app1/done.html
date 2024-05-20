@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Congratulations</h1>
+    <h4>Your booking is done<h4>
+    <br><br>
+
+    <p>Want to go book another service?</p>
+    <a href="{% url 'app1:bookService'%}">Book</a><br><br>
+
+    <p>Want to go back to Home page?</p>
+    <a href="{% url 'app1:home'%}">Home Page</a><br><br>
+
+    <p>Want to Logout?</p>
+    <a href="{% url 'logout'%}">Logout</a>
+
+    
+
+</body>
+</html>

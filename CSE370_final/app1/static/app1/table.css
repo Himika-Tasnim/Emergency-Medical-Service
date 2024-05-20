@@ -1,0 +1,38 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    text-align: center;
+
+  }
+
+table {
+    border-collapse: collapse;
+    border-color: black;
+    width: 80%;
+    text-align: center;
+    align-content: center;
+  }
+  th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-color: black;
+  }
+  
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-color: black;
+    
+  }
+tr:hover {background-color:darkblue;}
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }

@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    {%if user.is_authenticated%} 
+      You are logged in, {{user.username}}<br>
+      {%if user.patient%}  
+        <b>You are registered as patient </b><br>
+      {%elif user.donor%}  
+        <b>You are registered as donor</b> <br>
+      {%elif user.doctor%}  
+        <b>You are registered as doctor</b> <br>
+      {%elif user.hospital%} 
+        <b>You are registered as hospital</b> <br>
+      {%endif%}
+      <br> <br> <br>
+      <a href="{% url 'logout' %}">LogOut</a>
+    {%else%} 
+      <a href="{% url 'app1:patient'%}">Patient Sign Up</a><br>
+      <a href="{% url 'app1:donor'%}">Donor Sign Up</a><br>
+      <a href="{% url 'app1:doctor'%}">Doctor Sign Up</a><br>
+      <a href="{% url 'app1:hospital'%}">Hospital Sign Up</a><br>
+    {%endif%}
+</body>
+</html>
